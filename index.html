@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graham Robinson — Psychotherapist & Counsellor</title>
+  <meta name="description" content="Online psychotherapy for adults across Ireland, the UK, and EU. Integrative, practical, grounded.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #F5F0E8;
+      --cream-dark: #EDE6D6;
+      --sage: #7A9E7E;
+      --sage-light: #A8C5AC;
+      --sage-dark: #4D7A52;
+      --terracotta: #C17A5A;
+      --terracotta-light: #D4967A;
+      --charcoal: #2C2C2A;
+      --charcoal-soft: #4A4A47;
+      --warm-grey: #8A8880;
+      --white: #FDFBF7;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--charcoal);
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.25rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(245, 240, 232, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(122, 158, 126, 0.15);
+    }
+
+    .nav-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      letter-spacing: 0.01em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--charcoal-soft);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--sage-dark);
+    }
+
+    .nav-cta {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--white) !important;
+      background: var(--sage);
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--sage-dark);
+      color: var(--white) !important;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 5rem 5rem;
+      gap: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      right: -5%;
+      width: 55%;
+      height: 80%;
+      background: radial-gradient(ellipse at center, rgba(168, 197, 172, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--sage-dark);
+    }
+
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .hero-lead {
+      font-size: 1.1rem;
+      color: var(--charcoal-soft);
+      max-width: 42ch;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--sage);
+      color: var(--white);
+      padding: 0.875rem 2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--sage-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      color: var(--charcoal-soft);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 400;
+      border-bottom: 1px solid var(--warm-grey);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      color: var(--sage-dark);
+      border-color: var(--sage-dark);
+    }
+
+    .hero-image {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-image-frame {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: 2rem;
+      background: var(--cream-dark);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--cream-dark) 0%, var(--sage-light) 100%);
+      color: var(--warm-grey);
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 2rem;
+      left: -2rem;
+      background: var(--white);
+      border-radius: 1rem;
+      padding: 1rem 1.25rem;
+      box-shadow: 0 8px 32px rgba(44, 44, 42, 0.12);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      max-width: 220px;
+    }
+
+    .badge-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--sage);
+      flex-shrink: 0;
+    }
+
+    .badge-text {
+      font-size: 0.8rem;
+      color: var(--charcoal-soft);
+      line-height: 1.4;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 6rem 5rem;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+    }
+
+    h2 em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    /* ABOUT */
+    .about {
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--charcoal-soft);
+      margin-bottom: 1.25rem;
+      font-weight: 300;
+    }
+
+    .about-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .credentials {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .credential-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.25rem;
+      background: var(--cream);
+      border-radius: 0.75rem;
+      border-left: 3px solid var(--sage);
+    }
+
+    .credential-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .credential-text {
+      font-size: 0.9rem;
+      color: var(--charcoal-soft);
+      line-height: 1.5;
+    }
+
+    .credential-text strong {
+      display: block;
+      color: var(--charcoal);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    /* APPROACH */
+    .approach {
+      background: var(--cream);
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .approach-card {
+      background: var(--white);
+      border-radius: 1.25rem;
+      padding: 2rem;
+      transition: transform 0.2s;
+    }
+
+    .approach-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .approach-card-accent {
+      width: 2.5rem;
+      height: 3px;
+      border-radius: 2px;
+      margin-bottom: 1.25rem;
+    }
+
+    .accent-sage { background: var(--sage); }
+    .accent-terracotta { background: var(--terracotta); }
+    .accent-sage-dark { background: var(--sage-dark); }
+
+    .approach-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      margin-bottom: 0.75rem;
+    }
+
+    .approach-card p {
+      font-size: 0.9rem;
+      color: var(--charcoal-soft);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .approach-lead {
+      max-width: 60ch;
+      color: var(--charcoal-soft);
+      font-weight: 300;
+      font-size: 1.05rem;
+    }
+
+    /* SERVICES */
+    .services {
+      background: var(--charcoal);
+      color: var(--cream);
+    }
+
+    .services .section-label {
+      color: var(--sage-light);
+    }
+
+    .services h2 {
+      color: var(--cream);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .service-item {
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(168, 197, 172, 0.2);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .service-item:hover {
+      border-color: rgba(168, 197, 172, 0.5);
+      background: rgba(168, 197, 172, 0.05);
+    }
+
+    .service-item h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+
+    .service-item p {
+      font-size: 0.9rem;
+      color: var(--sage-light);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .services-note {
+      margin-top: 2.5rem;
+      padding: 1.5rem 2rem;
+      border-radius: 0.75rem;
+      background: rgba(168, 197, 172, 0.08);
+      border-left: 3px solid var(--sage-light);
+      font-size: 0.9rem;
+      color: var(--sage-light);
+      font-weight: 300;
+    }
+
+    /* BOOK */
+    .book {
+      background: var(--cream-dark);
+      text-align: center;
+    }
+
+    .book .section-inner {
+      max-width: 680px;
+    }
+
+    .book p {
+      color: var(--charcoal-soft);
+      font-weight: 300;
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .book-details {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .book-detail {
+      text-align: center;
+    }
+
+    .book-detail-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--warm-grey);
+      margin-bottom: 0.4rem;
+    }
+
+    .book-detail-value {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--charcoal);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--charcoal);
+      padding: 2.5rem 5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--cream);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--warm-grey);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--sage-light);
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--warm-grey);
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 7rem 1.5rem 3rem;
+        gap: 2.5rem;
+        min-height: auto;
+      }
+
+      .hero-image {
+        order: -1;
+      }
+
+      .hero-image-frame {
+        aspect-ratio: 4/3;
+        border-radius: 1.25rem;
+      }
+
+      .hero-badge {
+        left: 1rem;
+        bottom: 1rem;
+      }
+
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .approach-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .book-details {
+        gap: 2rem;
+      }
+
+      footer {
+        padding: 2rem 1.5rem;
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+    h1 { animation: fadeUp 0.6s ease 0.1s both; }
+    .hero-lead { animation: fadeUp 0.6s ease 0.2s both; }
+    .hero-actions { animation: fadeUp 0.6s ease 0.3s both; }
+    .hero-image { animation: fadeUp 0.6s ease 0.15s both; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-name">Graham Robinson</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#book" class="nav-cta">Book a session</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Online Psychotherapy</p>
+      <h1>A space to understand yourself <em>better.</em></h1>
+      <p class="hero-lead">I offer practical, grounded therapy for adults navigating anxiety, low mood, relationship difficulties, and life transitions — without keeping you in therapy longer than you need to be.</p>
+      <div class="hero-actions">
+        <a href="#book" class="btn-primary">Book an initial consultation</a>
+        <a href="#about" class="btn-secondary">Learn more</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-image-frame">
+        <!-- Replace src with your headshot path -->
+        <div class="hero-image-placeholder">[ Your photo ]</div>
+      </div>
+      <div class="hero-badge">
+        <div class="badge-dot"></div>
+        <p class="badge-text">Available online across Ireland, UK & EU</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="section-label">About me</p>
+          <h2>Calm, grounded, and <em>direct</em> when it matters.</h2>
+          <p>My name is Graham Robinson. I work online with adults across Ireland, the UK, and EU. Clients often come to me feeling stuck, carrying anxiety, low mood, or patterns in relationships they can't quite shift.</p>
+          <p>I work in a calm, grounded way, but I'll challenge you when it's useful. I'm not here to be impressive or to make myself necessary. I'm here to help you need me less.</p>
+          <p>Before training as a therapist I studied Applied Psychology at University College Cork. That background gave me a lasting respect for research and evidence, and a healthy scepticism about claims that don't hold up to scrutiny.</p>
+          <p>I'm in regular clinical supervision and committed to ongoing professional development.</p>
+        </div>
+        <div class="about-credentials">
+          <div class="credentials">
+            <div class="credential-item">
+              <div class="credential-icon">🎓</div>
+              <div class="credential-text">
+                <strong>MSc Integrative Counselling & Psychotherapy</strong>
+                University of Derby — Distinction, Outstanding Achievement Prize
+              </div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-icon">🎓</div>
+              <div class="credential-text">
+                <strong>BA Applied Psychology</strong>
+                University College Cork
+              </div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-icon">✦</div>
+              <div class="credential-text">
+                <strong>Individual Member, BACP</strong>
+                British Association for Counselling and Psychotherapy
+              </div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-icon">🔒</div>
+              <div class="credential-text">
+                <strong>Professionally insured</strong>
+                Balens Specialist Insurance
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="approach" id="approach">
+    <div class="section-inner">
+      <p class="section-label">How I work</p>
+      <h2>Theory in the background, <em>you</em> in the foreground.</h2>
+      <p class="approach-lead">My approach is integrative, drawing on attachment theory, CBT, and person-centred practice. But I try not to let the theory get in the way. If there is something practical that can help, we work on that first.</p>
+      <div class="approach-grid">
+        <div class="approach-card">
+          <div class="approach-card-accent accent-sage"></div>
+          <h3>Attachment-informed</h3>
+          <p>Early experiences shape how we relate to ourselves and others. Understanding those patterns is often the beginning of changing them.</p>
+        </div>
+        <div class="approach-card">
+          <div class="approach-card-accent accent-terracotta"></div>
+          <h3>Practically focused</h3>
+          <p>Not every difficulty needs to be traced to its roots. Sometimes a shift in thinking or behaviour is what actually helps — and we start there.</p>
+        </div>
+        <div class="approach-card">
+          <div class="approach-card-accent accent-sage-dark"></div>
+          <h3>Genuinely collaborative</h3>
+          <p>The relationship between us matters. So does your own sense of what you need. We work together, and I'll be honest with you throughout.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="section-inner">
+      <p class="section-label">What I work with</p>
+      <h2>Difficulties I see <em>most often.</em></h2>
+      <div class="services-grid">
+        <div class="service-item">
+          <h3>Anxiety & worry</h3>
+          <p>Persistent anxiety, overthinking, and the physical and emotional toll of living on high alert.</p>
+        </div>
+        <div class="service-item">
+          <h3>Low mood & depression</h3>
+          <p>Feeling flat, disconnected, or unable to find motivation or meaning in everyday life.</p>
+        </div>
+        <div class="service-item">
+          <h3>Relationship patterns</h3>
+          <p>Repeating difficulties in relationships, communication struggles, and attachment-related challenges.</p>
+        </div>
+        <div class="service-item">
+          <h3>Identity & self-worth</h3>
+          <p>Questions about who you are, chronic self-criticism, and difficulty valuing yourself.</p>
+        </div>
+        <div class="service-item">
+          <h3>Life transitions</h3>
+          <p>Significant changes — in work, relationships, location, or life stage — that leave you feeling unmoored.</p>
+        </div>
+        <div class="service-item">
+          <h3>Stress & burnout</h3>
+          <p>When the demands of life consistently outrun your capacity to cope with them.</p>
+        </div>
+      </div>
+      <p class="services-note">I work with adults on a one-to-one basis, online. I don't claim to specialise in everything. If something you're dealing with falls outside what I can offer well, I'll say so and help you find someone better placed to help.</p>
+    </div>
+  </section>
+
+  <!-- BOOK -->
+  <section class="book" id="book">
+    <div class="section-inner">
+      <p class="section-label">Getting started</p>
+      <h2>Begin with an <em>initial consultation.</em></h2>
+      <p>A 30 minute introductory session to talk about what brings you to therapy, how I work, and whether we might be a good fit. There is no obligation to continue.</p>
+      <div class="book-details">
+        <div class="book-detail">
+          <p class="book-detail-label">Duration</p>
+          <p class="book-detail-value">30 min</p>
+        </div>
+        <div class="book-detail">
+          <p class="book-detail-label">Fee</p>
+          <p class="book-detail-value">€35</p>
+        </div>
+        <div class="book-detail">
+          <p class="book-detail-label">Format</p>
+          <p class="book-detail-value">Online</p>
+        </div>
+        <div class="book-detail">
+          <p class="book-detail-label">Sessions</p>
+          <p class="book-detail-value">€70</p>
+        </div>
+      </div>
+      <a href="https://graham-robinson.eu1.cliniko.com/bookings" class="btn-primary" target="_blank">Book a consultation</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-name">Graham Robinson</p>
+    <ul class="footer-links">
+      <li><a href="https://drive.proton.me/urls/5AHWYBXE9C#ii1NiZXx7zJV" target="_blank">Client Agreement</a></li>
+      <li><a href="#" target="_blank">Privacy Policy</a></li>
+      <li><a href="mailto:[your-proton-email]">Contact</a></li>
+    </ul>
+    <p class="footer-copy">© Graham Robinson 2026</p>
+  </footer>
+
+</body>
+</html>

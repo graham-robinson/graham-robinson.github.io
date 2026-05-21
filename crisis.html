@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crisis Support — Graham Robinson</title>
+  <meta name="description" content="Crisis support resources for Ireland, the UK, and internationally. If you are in urgent distress, please reach out to one of these services.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream:        #F4EFE6;
+      --cream-mid:    #EDE5D8;
+      --cream-dark:   #E0D5C5;
+      --sage:         #7B9E87;
+      --sage-light:   #A8C5B0;
+      --sage-dark:    #4E7A5A;
+      --terra:        #B8714E;
+      --charcoal:     #252420;
+      --charcoal-mid: #3D3B36;
+      --charcoal-soft:#5C5A54;
+      --stone:        #8C8A82;
+      --white:        #FDFAF5;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: rgba(244,239,230,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(123,158,135,0.18);
+    }
+    .nav-links { list-style: none; display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      font-size: 0.85rem;
+      color: var(--charcoal-soft);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-btn {
+      font-weight: 500 !important;
+      color: var(--white) !important;
+      background: var(--sage);
+      padding: 0.5rem 1.35rem;
+      border-radius: 2rem;
+      transition: background 0.2s !important;
+    }
+    .nav-btn:hover { background: var(--sage-dark) !important; }
+    .page-header {
+      padding: 9rem 3rem 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      margin-bottom: 0.9rem;
+    }
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: var(--charcoal);
+      margin-bottom: 1.25rem;
+    }
+    .header-lead {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--charcoal-soft);
+      max-width: 58ch;
+    }
+    .urgent-box {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 3rem 3rem;
+    }
+    .urgent-inner {
+      background: var(--charcoal);
+      border-radius: 1rem;
+      padding: 1.75rem 2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+    .urgent-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--terra);
+      flex-shrink: 0;
+      margin-top: 0.55rem;
+    }
+    .urgent-text {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--sage-light);
+      line-height: 1.6;
+    }
+    .urgent-text strong { color: var(--cream); font-weight: 500; }
+    section { padding: 3rem 3rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1.5px solid var(--cream-dark);
+    }
+    .resources {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .resource {
+      background: var(--white);
+      border-radius: 0.9rem;
+      padding: 1.5rem 1.75rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      transition: box-shadow 0.2s;
+    }
+    .resource:hover { box-shadow: 0 4px 20px rgba(37,36,32,0.07); }
+    .resource-info h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 0.3rem;
+    }
+    .resource-info p {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--charcoal-soft);
+      line-height: 1.55;
+    }
+    .resource-info .resource-contact {
+      font-size: 0.825rem;
+      font-weight: 500;
+      color: var(--sage-dark);
+      margin-top: 0.4rem;
+    }
+    .resource-link {
+      display: inline-block;
+      font-size: 0.825rem;
+      font-weight: 500;
+      color: var(--sage-dark);
+      text-decoration: none;
+      border: 1.5px solid var(--sage);
+      padding: 0.45rem 1rem;
+      border-radius: 2rem;
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+      flex-shrink: 0;
+    }
+    .resource-link:hover { background: var(--sage); color: var(--white); }
+    .country-section { background: var(--cream); }
+    .country-section:nth-child(even) { background: var(--white); }
+    .note {
+      margin-top: 3rem;
+      padding: 3rem;
+      background: var(--cream-mid);
+      border-top: 1px solid var(--cream-dark);
+    }
+    .note-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--charcoal-soft);
+      line-height: 1.65;
+    }
+    .note-inner strong { color: var(--charcoal); font-weight: 500; }
+    footer {
+      background: var(--charcoal-mid);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-links { list-style: none; display: flex; gap: 1.75rem; }
+    .footer-links a { font-size: 0.78rem; color: var(--stone); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--sage-light); }
+    .footer-copy { font-size: 0.78rem; color: var(--stone); }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .page-header { animation: fadeUp 0.5s ease both; }
+    @media (max-width: 860px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .page-header { padding: 7rem 1.5rem 3rem; }
+      .urgent-box { padding: 0 1.5rem 2rem; }
+      section { padding: 2.5rem 1.5rem; }
+      .resource { grid-template-columns: 1fr; }
+      .note { padding: 2rem 1.5rem; }
+      footer { flex-direction: column; text-align: center; padding: 1.75rem 1.5rem; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="booking.html">Fees &amp; Booking</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="booking.html" class="nav-btn">Book a session</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <p class="section-tag">Crisis Support</p>
+    <h1>If you need help right now</h1>
+    <p class="header-lead">This page lists crisis and mental health support services in Ireland, the UK, and internationally. It is not exhaustive — if you do not see a service for your country, please search for local crisis support or contact your nearest emergency services.</p>
+    <p class="header-lead" style="margin-top:1rem; font-size:0.95rem;">Please note: I am a private psychotherapist working with adults by appointment. I am not a crisis service and cannot respond to urgent situations. If you or someone you know needs immediate help, please use the services listed below.</p>
+  </div>
+
+  <div class="urgent-box">
+    <div class="urgent-inner">
+      <div class="urgent-dot"></div>
+      <p class="urgent-text"><strong>If you are in immediate danger,</strong> please call your local emergency services now — 999 or 112 in Ireland and the UK, or 112 across the EU. Do not wait. Do not contact me — I cannot respond to emergencies.</p>
+    </div>
+  </div>
+
+  <!-- IRELAND -->
+  <section class="country-section">
+    <div class="section-inner">
+      <h2>Ireland</h2>
+      <div class="resources">
+        <div class="resource">
+          <div class="resource-info">
+            <h3>Samaritans Ireland</h3>
+            <p>Free, confidential listening support for anyone in distress or struggling to cope, available 24 hours a day, seven days a week.</p>
+            <p class="resource-contact">Freephone: 116 123 &nbsp;|&nbsp; Email: jo@samaritans.ie</p>
+          </div>
+          <a href="https://www.samaritans.org/ireland/" target="_blank" rel="noopener" class="resource-link">Visit site</a>
+        </div>
+        <div class="resource">
+          <div class="resource-info">
+            <h3>Pieta House</h3>
+            <p>Crisis support for people experiencing suicidal ideation or self-harm. Free counselling and 24-hour crisis line available.</p>
+            <p class="resource-contact">Freephone: 1800 247 247 &nbsp;|&nbsp; Text HELP to 51444</p>
+          </div>
+          <a href="https://www.pieta.ie" target="_blank" rel="noopener" class="resource-link">Visit site</a>
+        </div>
+        <div class="resource">
+          <div class="resource-info">
+            <h3>Crisis Text Line Ireland</h3>
+            <p>Free, confidential support via text message for people in crisis. Available 24 hours a day.</p>
+            <p class="resource-contact">Text HELLO to 50808</p>
+          </div>
+          <a href="https://www.text50808.ie" target="_blank" rel="noopener" class="resource-link">Visit site</a>
+        </div>
+        <div class="resource">
+          <div class="resource-info">
+            <h3>HSE Mental Health Services</h3>
+            <p>Information on accessing mental health support through the Irish public health system, including community mental health teams and emergency services.</p>
+          </div>
+          <a href="https://www.hse.ie/eng/services/list/4/mental-health-services/" target="_blank" rel="noopener" class="resource-link">Visit site</a>
+        </div>
+        <div class="resource">
+          <div class="resource-info">
+            <h3>Aware</h3>
+            <p>Support for people affected by depression and bipolar disorder, including a helpline, online support groups, and educational programmes.</p>
+            <p class="resource-contact">Helpline: 1800 804 848</p>
+          </div>
+          <a href="https://www.aware.ie" target="_blank" rel="noopener" class="resource-link">Visit site</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UK -->
+  <section class="country-section">
+    <div class="section-inner">
+      <h2>United Kingdom</h2>
+      <div class="resources">
+        <div class="resource">
+          <div class="resource-info">
+            <h3>Samaritans UK</h3>
+            <p>Confidential emotional support for anyone in distress or struggling to cope. Available 24 hours a day, every day of the year.</p>
+            <p class="resource-contact">Freephone: 116 123 &nbsp;|&nbsp; Email: jo@samaritans.org</p>
+          </div>
+          <a href="https://www.samaritans.org" target="_blank" rel="noopener" class="resource-link">Visit site</a>
+        </div>
+        <div class="resource">
+          <div class="resource-info">
+            <h3>Crisis Text Line UK</h3>
+            <p>Free, confidential crisis support via text message, available 24 hours a day.</p>
+            <p class="resource-contact">Text SHOUT to 85258</p>
+          </div>
+          <a href="https://giveusashout.org" target="_blank" rel="noopener" class="resource-link">Visit site</a>
+        </div>
+        <div class="resource">
+          <div class="resource-info">
+            <h3>Mind</h3>
+            <p>Mental health information, support, and advocacy. Includes a directory of local Mind services and an infoline for guidance on mental health support.</p>
+            <p class="resource-contact">Infoline: 0300 123 3393</p>
+          </div>
+          <a href="https://www.mind.org.uk" target="_blank" rel="noopener" class="resource-link">Visit site</a>
+        </div>
+        <div class="resource">
+          <div class="resource-info">
+            <h3>NHS Urgent Mental Health Support</h3>
+            <p>Information on accessing urgent and emergency mental health support through the NHS, including how to contact your local crisis team.</p>
+          </div>
+          <a href="https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/behaviours/help-for-suicidal-thoughts/" target="_blank" rel="noopener" class="resource-link">Visit site</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERNATIONAL -->
+  <section class="country-section">
+    <div class="section-inner">
+      <h2>International</h2>
+      <div class="resources">
+        <div class="resource">
+          <div class="resource-info">
+            <h3>Befrienders Worldwide</h3>
+            <p>An international network of emotional support centres providing confidential listening to people in distress. Includes a directory of services by country.</p>
+          </div>
+          <a href="https://www.befrienders.org" target="_blank" rel="noopener" class="resource-link">Visit site</a>
+        </div>
+        <div class="resource">
+          <div class="resource-info">
+            <h3>International Association for Suicide Prevention</h3>
+            <p>A directory of crisis centres and suicide prevention resources worldwide, searchable by country.</p>
+          </div>
+          <a href="https://www.iasp.info/resources/Crisis_Centres/" target="_blank" rel="noopener" class="resource-link">Visit site</a>
+        </div>
+        <div class="resource">
+          <div class="resource-info">
+            <h3>findahelpline.com</h3>
+            <p>A free, searchable directory of crisis helplines in over 100 countries, covering mental health, suicide prevention, domestic abuse, and more.</p>
+          </div>
+          <a href="https://findahelpline.com" target="_blank" rel="noopener" class="resource-link">Visit site</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINORS -->
+  <section class="country-section">
+    <div class="section-inner">
+      <h2>Support for young people and minors</h2>
+      <p style="font-size:0.95rem; font-weight:300; color:var(--charcoal-soft); margin-bottom:1.5rem; max-width:62ch;">I work with adults only and am not in a position to provide support to minors. If you are a young person in distress, or an adult concerned about a young person, please contact one of the services below or reach out to local emergency services or the relevant child protection authorities in your country.</p>
+      <div class="resources">
+        <div class="resource">
+          <div class="resource-info">
+            <h3>Childline Ireland</h3>
+            <p>Free, confidential support for children and young people up to the age of 18 in Ireland. Available 24 hours a day by phone, text, or online chat.</p>
+            <p class="resource-contact">Freephone: 1800 66 66 66 &nbsp;|&nbsp; Text: 50101</p>
+          </div>
+          <a href="https://www.childline.ie" target="_blank" rel="noopener" class="resource-link">Visit site</a>
+        </div>
+        <div class="resource">
+          <div class="resource-info">
+            <h3>Tusla — Child and Family Agency (Ireland)</h3>
+            <p>Ireland's statutory child protection and welfare agency. If you are concerned about the safety or welfare of a child, you can make a report to Tusla.</p>
+          </div>
+          <a href="https://www.tusla.ie/services/child-protection-welfare/concerned-about-a-child/" target="_blank" rel="noopener" class="resource-link">Visit site</a>
+        </div>
+        <div class="resource">
+          <div class="resource-info">
+            <h3>Childline UK (NSPCC)</h3>
+            <p>Free, confidential support for children and young people in the UK. Available 24 hours a day by phone or online chat.</p>
+            <p class="resource-contact">Freephone: 0800 1111</p>
+          </div>
+          <a href="https://www.childline.org.uk" target="_blank" rel="noopener" class="resource-link">Visit site</a>
+        </div>
+        <div class="resource">
+          <div class="resource-info">
+            <h3>NSPCC (UK)</h3>
+            <p>If you are an adult concerned about a child in the UK, you can contact the NSPCC helpline for advice and to make a report.</p>
+            <p class="resource-contact">Helpline: 0808 800 5000</p>
+          </div>
+          <a href="https://www.nspcc.org.uk" target="_blank" rel="noopener" class="resource-link">Visit site</a>
+        </div>
+        <div class="resource">
+          <div class="resource-info">
+            <h3>Child Helpline International</h3>
+            <p>A global network of child helplines. Includes a directory of services by country for young people seeking support internationally.</p>
+          </div>
+          <a href="https://www.childhelplineinternational.org" target="_blank" rel="noopener" class="resource-link">Visit site</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="note">
+    <p class="note-inner"><strong>Please note:</strong> this list is provided as a general resource and is not exhaustive. Services, contact details, and availability may change. If you are outside Ireland or the UK and cannot find a relevant service here, please search for crisis support in your country or contact your nearest emergency services. In an immediate emergency, call 999, 112, or your local emergency number.</p>
+  </div>
+
+  <footer>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="booking.html">Fees &amp; Booking</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="https://drive.proton.me/urls/5AHWYBXE9C#ii1NiZXx7zJV" target="_blank">Client Agreement</a></li>
+    </ul>
+    <p class="footer-copy">&copy; Graham Robinson 2026</p>
+  </footer>
+
+</body>
+</html>
